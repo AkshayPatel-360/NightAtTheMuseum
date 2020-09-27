@@ -17,8 +17,8 @@ public class PlayerControl : MonoBehaviour
     {
         rb =  gameObject.GetComponent<Rigidbody>();
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+       // Cursor.lockState = CursorLockMode.Locked;
+       // Cursor.visible = false;
     }
     void Start()
     {
