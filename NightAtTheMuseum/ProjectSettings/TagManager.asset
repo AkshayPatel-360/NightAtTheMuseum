@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Collectable
   - FallingPlatform
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -18,9 +19,9 @@ TagManager:
   - 
   - Ground
   - Snowman
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Bullet
   - 
   - 
   - 
@@ -52,4 +53,16 @@ TagManager:
     locked: 0
   - name: Collectable
     uniqueID: 1146260069
+    locked: 0
+  - name: Ground
+    uniqueID: 3372586385
+    locked: 0
+  - name: Player
+    uniqueID: 2215855581
+    locked: 0
+  - name: Enemy
+    uniqueID: 2823351181
+    locked: 0
+  - name: Bullet
+    uniqueID: 3721326781
     locked: 0

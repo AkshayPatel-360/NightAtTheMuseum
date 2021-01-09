@@ -4,48 +4,48 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
     
-    public float playerMoveSpeed;
-    public float playerJump;  
-    Renderer rend;
+    public CharacterController controller;
+    private Vector3 playerVelocity;
+    private bool groundedPlayer;
+    private float playerSpeed = 10.0f;
+    private float jumpHeight = 1.0f;
+    private float gravityValue = -9.81f;
 
-    private Rigidbody2D rb2d;        //Store a reference to the Rigidbody2D component required to use 2D Physics.
-
-    // Use this for initialization
-    void Start()
+    private void Start()
     {
-        rend = GetComponent<Renderer>();
-        rb2d = GetComponent<Rigidbody2D>();
+        controller = gameObject.AddComponent<CharacterController>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        PlayerMovementAD();
-        
-    }
-    private void Update()
-    {
-        
-        Vector2 bottom = rend.bounds.min;
-        RaycastHit2D hit = Physics2D.Raycast(bottom, -Vector2.up,0.3f);
-        //Debug.DrawRay(bottom, -Vector2.up * 0.3f,Color.red,1);          
-        if (hit.collider != null && (Input.GetKey(KeyCode.Space)))
+        groundedPlayer = controller.isGrounded;
+        if (groundedPlayer && playerVelocity.y < 0)
         {
-            Jump();
+            playerVelocity.y = 0f;
         }
 
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        controller.Move(move * Time.deltaTime * playerSpeed);
+
+        if (move != Vector3.zero)
+        {
+            gameObject.transform.forward = move;
+        }
+
+        // Changes the height position of the player..
+        if (Input.GetButtonDown("Jump") && groundedPlayer)
+        {
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+        }
+
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        controller.Move(playerVelocity * Time.deltaTime);
     }
 
-    void PlayerMovementAD()
-    {
-        float xmove = Input.GetAxisRaw("Horizontal");
-        
-        rb2d.velocity = new Vector2(xmove * playerMoveSpeed, rb2d.velocity.y);
-    }
 
-    void Jump()
-    {      
-        rb2d.velocity = new Vector2(rb2d.velocity.x, playerJump );
-    }
+
+
 
 }

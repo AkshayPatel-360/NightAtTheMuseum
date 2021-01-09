@@ -9,9 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScene.unity
     guid: 287820c87bd00ae43b015e8d099d6fbc
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Museum.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/2DGame.unity
     guid: bbdf973791683964f895e8210ea10045
+  - enabled: 1
+    path: Assets/Scenes/MatchGame.unity
+    guid: 80858602b49ac8a4b8062537a4a9f2a2
+  - enabled: 1
+    path: Assets/Scenes/SpicialRoom.unity
+    guid: 623a5efe5a91c864e9d0a2e0f3a838c5
+  - enabled: 1
+    path: Assets/Scenes/3DProBuilder.unity
+    guid: 40ce4b92f972ee644b1f46c814b69f67
+  - enabled: 1
+    path: Assets/Scenes/2DPlaneGame/2DPlaneGame.unity
+    guid: e757a474836b1b54a946d96e545e5e4d
   m_configObjects: {}
